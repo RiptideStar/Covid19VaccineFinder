@@ -1,11 +1,12 @@
 import os
 
-url = 'https://www.signupgenius.com/go/copvaccination4-18'
+url = 'https://www.signupgenius.com/go/copvaccination4-17'
 # url = 'https://www.signupgenius.com/go/copvaccination4-17'
 
 
-def retrieveData(api_url):
-    os.system(f'curl -s {api_url} > tempSite.html')
+def retrieve_data(api_url):
+    # os.system(f'curl -s {api_url} > tempSite.html')
+    os.system('curl -s '+api_url+' > tempSite.html')
 
     stream = os.popen('wc -l tempSite.html')
     output = stream.readlines()
@@ -24,5 +25,5 @@ def retrieveData(api_url):
     return False
     
 
-found = retrieveData(url)
+found = retrieve_data(url)
 print("Found?", found)
