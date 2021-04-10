@@ -18,4 +18,14 @@
         <p><input type=submit value=Register>
     </form>
 
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msgs in messages %}
+                <div class="alert alert-info" role="alert">
+                    {{msgs}}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
 </body>
