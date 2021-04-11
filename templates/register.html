@@ -8,22 +8,29 @@
 </head>
 
 <style>
-body {
-  font-size: 20px;
-  background-color: powderblue;
-}
+    body {
+        font-size: 20px;
+        background-color: powderblue;
+    }
 
-input {
-    font-size:20px; height:30px
-}
-
+    input {
+        font-size: 20px;
+        height: 30px
+    }
 </style>
 
 <body>
-
     <p>
-        We can help you to check websites that track covid19 vaccine availabilities and will notify you through email
+        We can help you to check Covid19 sign-up websites that track vaccine availabilities and will automatically
+        notify you through email
         when a spot opens up.
+    </p>
+    <p> Currently we are checking sites: </p>
+    <li>
+        <a href="https://www.signupgenius.com/go/copvaccination4-17">https://www.signupgenius.com/go/copvaccination4-17</a>
+    </li>
+    <p>
+        Please email us <a href="mailto:kzhangapplications@gmail.com">kzhangapplications@gmail.com</a> if you want other sign-up sites to be included in the checklist.
     </p>
 
     <form method=post>
@@ -34,18 +41,19 @@ input {
             </tr>
         </table>
 
-        <p><input type=submit value=Register>
+        <p><input type=submit value=Register> <input type=submit value=Remove>
     </form>
 
     {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            {% for msgs in messages %}
-                <div class="alert alert-info" role="alert">
-                    {{msgs}}
-                </div>
-            {% endfor %}
-        {% endif %}
+    {% if messages %}
+    {% for msgs in messages %}
+    <div class="alert alert-info" role="alert">
+        {{msgs}}
+    </div>
+    {% endfor %}
+    {% endif %}
     {% endwith %}
 
 </body>
+
 </html>
