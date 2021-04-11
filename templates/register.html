@@ -9,12 +9,16 @@
 
 <style>
     body {
-        font-size: 20px;
+        font-size: 18px;
         background-color: powderblue;
     }
 
-    input {
-        font-size: 20px;
+    p {
+        color: rgb(50, 50, 235)
+    }
+
+    input { 
+        font-size: 18px;
         height: 30px
     }
 </style>
@@ -25,18 +29,26 @@
         notify you through email
         when a spot opens up.
     </p>
-    <p> Currently we are checking sites: </p>
-    <li>
-        <a href="https://www.signupgenius.com/go/copvaccination4-17">https://www.signupgenius.com/go/copvaccination4-17</a>
-    </li>
-    <p>
-        Please email us <a href="mailto:kzhangapplications@gmail.com">kzhangapplications@gmail.com</a> if you want other sign-up sites to be included in the checklist.
-    </p>
+    <p> Currently we are checking sites below. Please email us <a
+            href="mailto:kzhangapplications@gmail.com">kzhangapplications@gmail.com</a> if you want other
+        sign-up sites to be included in the checklist.</p>
+    <table>
+        <tr>
+            <td><a
+                    href="https://www.signupgenius.com/go/copvaccination4-17">https://www.signupgenius.com/go/copvaccination4-17</a>
+            </td>
+        </tr>
+    </table>
+
+    <br>
 
     <form method=post>
         <table>
             <tr>
-                <td>{{ form.email.label }} </td>
+                <td>Please enter your email:</td>
+            </tr>
+            <tr>
+                <!-- <td>{{ form.email.label }} </td> -->
                 <td>{{ form.email }} </td>
             </tr>
         </table>
@@ -53,6 +65,7 @@
     {% endfor %}
     {% endif %}
     {% endwith %}
+
 
 </body>
 
