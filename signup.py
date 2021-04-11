@@ -22,7 +22,7 @@ app.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
 
 class RegistrationForm(Form):
     # username = StringField('Username', [validators.Length(min=4=, max=25)])
-    email = StringField('email', [validators.Length(min=6, max=45)])
+    email = StringField('Email:', [validators.Length(min=8, max=65)])
     # password = PasswordField('New Password', [
     #     validators.DataRequired(),
     #     validators.EqualTo('confirm', message='Passwords must match')

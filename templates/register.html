@@ -7,6 +7,13 @@
     <!-- <link rel="stylesheet" href="{{ url_for('static',filename='styles/register.css') }}"> -->
 </head>
 
+<style>
+body {
+  font-size: 20px;
+}
+
+</style>
+
 <body>
 
     <p>
@@ -22,7 +29,7 @@
             </tr>
         </table>
 
-        <p><input type=submit value=Register>
+        <p><input type=submit value=Register style="height:30px; width:70px">
     </form>
 
     {% with messages = get_flashed_messages() %}
