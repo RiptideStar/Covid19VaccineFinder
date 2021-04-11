@@ -42,7 +42,7 @@
 
     <br>
 
-    <form method=post>
+    <form action="" method=post>
         <table>
             <tr>
                 <td>Please enter your email:</td>
@@ -53,7 +53,7 @@
             </tr>
         </table>
 
-        <p><input type=submit value=Register> <input type=submit value=Remove>
+        <p><input type=submit name="Register" value=Register> <input type=submit name="Remove" value=Remove>
     </form>
 
     {% with messages = get_flashed_messages() %}

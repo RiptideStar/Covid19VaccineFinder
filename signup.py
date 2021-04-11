@@ -65,14 +65,40 @@ def saveToDataBase(email, db_name):
     conn.close()
     return True
 
+def removeFromDataBase(email, db_name):
+    # init_db(name)
+    conn = sqlite3.connect(db_name)
+    cur = conn.cursor()
+     #'"'+email+'"'
+    # print(data[index])
+    sql = '''
+        delete from Users where email=?
+        '''
+    try:    
+        cur.execute(sql, (email,))
+    except sqlite3.Error as e:
+        print(e)
+        flash("This email has been removed!")
+        return False
+    flash("This email has been removed!")    
+    conn.commit()
+    cur.close
+    conn.close()
+    return True    
+
 @app.route('/', methods=['GET', 'POST'])
 def register():
     form = RegistrationForm(request.form)
     if request.method == 'POST' and form.validate():
         # user = User(form.email.data) #watch out for no username and password
         # init_db('covid19siteDB.db')
-        saveToDataBase(form.email.data, 'covid19siteDB.db')
-        flash('Thanks for registering!')
+        # if form.submitted == 'Register':
+        if 'Register' in request.form:
+            saveToDataBase(form.email.data, 'covid19siteDB.db')
+            flash('Thanks for registering!')
+        else:
+            removeFromDataBase(form.email.data, 'covid19siteDB.db')   
+
         # return redirect(url_for('login')) # different formed website for entering the email
     return render_template('register.html', form=form)
 
