@@ -1,0 +1,10 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "signup",
+            "database": "${workspaceFolder:covid19signupStatus}/covid19siteDB.db"
+        }
+    ]
+}
