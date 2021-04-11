@@ -1,7 +1,9 @@
 import os
+import sqlite3
+from sendEmailToUser import emailToUser
 
 url = 'https://www.signupgenius.com/go/copvaccination4-17'
-# url = 'https://www.signupgenius.com/go/copvaccination4-17'
+# url = 'https://www.signupgenius.com/go/copvaccination4-18'
 
 
 def retrieve_data(api_url):
@@ -26,4 +28,38 @@ def retrieve_data(api_url):
     
 
 found = retrieve_data(url)
-print("Found?", found)
+
+
+def queryFromDataBase(db_name):
+    # init_db(name)
+    conn = sqlite3.connect(db_name)
+    cur = conn.cursor()
+    emailList = []
+    sql = '''
+        Select email from Users
+        '''
+    cur.execute(sql)    
+    emailList = cur.fetchall()
+    conn.commit()
+    cur.close
+    conn.close()
+    return emailList  
+
+
+#query emails from database and have a list for all emails
+email_tuples = queryFromDataBase('covid19siteDB.db')
+print("tuples", email_tuples)
+
+email_list = []
+for tuple in email_tuples:
+    email_list.append(tuple[0])
+print("lists:", email_list)
+
+emailToUser(email_list, url)
+
+if (found):
+    #send emails to everyone from querying email database
+    print("COVID VACCINE AVAILABLE")
+
+
+

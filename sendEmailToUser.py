@@ -1,4 +1,5 @@
 # import smtplib, ssl
+import smtplib
 
 def read_creds():
     user = passw = ""
@@ -9,32 +10,44 @@ def read_creds():
 
     return user, passw
 
-import smtplib
 
 gmail_user, gmail_password = read_creds()
 
 sent_from = gmail_user
 
-to = ['mkz100@gmail.com', 'mkz100@gmail.com']
-subject = 'OMG Super Important Message'
-body = 'Hey, what\'s up?\n\n- KZhang Apps'
 
-email_text = """\
-From: %s
-To: %s
-Subject: %s
+def emailToUser(email_list, url):
+    api_url = url
 
-%s
-""" % (sent_from, ", ".join(to), subject, body)
+    to = email_list
+    subject = 'COVID Vaccine Appointments are Available!'
+    body = '''\n There is an opening slot available for you for the covid vaccine.\n\n Check out '''+ url + '''
+    \n\n Best of wishes for you, thanks for using our covid vaccine app! \n\n- KZhang Apps
+    '''
+    
+    email = """\
+    Subject: %s
+    From: %s
+    To: %s
 
-# try:
-port = 465
-server = smtplib.SMTP_SSL('smtp.gmail.com', port)
-server.ehlo()
-server.login(gmail_user, gmail_password)
-server.sendmail(sent_from, to, email_text)
-server.close()
 
-print ('Email sent!')
-# except:
-#     print ('Something went wrong...')
+    %s
+    """ % (subject, sent_from, ", ".join(to), body)
+
+    # email_text = """\
+    # Subject: %s
+
+    # %s
+    # """ % (subject, body)
+
+    # try:
+    port = 465
+    server = smtplib.SMTP_SSL('smtp.gmail.com', port)
+    server.ehlo()
+    server.login(gmail_user, gmail_password)
+    server.sendmail(sent_from, to, email)
+    server.close()
+
+    print ('Email sent!')
+    # except:
+    #     print ('Something went wrong...')
