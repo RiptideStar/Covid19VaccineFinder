@@ -25,27 +25,14 @@ def emailToUser(email_list, url):
     \n\n Best of wishes for you, thanks for using our covid vaccine app! \n\n- KZhang Apps
     '''
     
-    email = """\
-    Subject: %s
-    From: %s
-    To: %s
-
-
-    %s
-    """ % (subject, sent_from, ", ".join(to), body)
-
-    # email_text = """\
-    # Subject: %s
-
-    # %s
-    # """ % (subject, body)
+    message = 'Subject: {}\n\n{}'.format(subject, body)
 
     # try:
     port = 465
     server = smtplib.SMTP_SSL('smtp.gmail.com', port)
     server.ehlo()
     server.login(gmail_user, gmail_password)
-    server.sendmail(sent_from, to, email)
+    server.sendmail(sent_from, to, message)
     server.close()
 
     print ('Email sent!')
