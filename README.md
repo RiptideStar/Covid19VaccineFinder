@@ -1,4 +1,12 @@
+# Covid19 Vaccine Availability Finder
 
+https://cutt.ly/myshot
+
+The website will keep searching / checking sign-up sites for available spots every 3 mins (some spots might become available due to any cancellations).If available spots are found, registered users are notified thru email immediately.
+
+The website allowing people to - 
+1. enter their emails to be notified when a spot of covid19 vaccine is available.
+2. remove their emails to unregister from the site.
 
 ## Make sign-up a service on Ubuntu Server:
 
