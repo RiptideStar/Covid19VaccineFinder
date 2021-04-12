@@ -2,5 +2,4 @@ tempSite.html
 credentials.txt
 __pycache__/*
 .vscode
-__pycache__/signup.cpython-39.pyc
 covid19siteDB.db
