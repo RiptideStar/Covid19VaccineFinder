@@ -43,6 +43,18 @@ class RegistrationForm(Form):
 #     conn.commit()
 #     conn.close()
 
+def queryFromDataBase(db_name, sql):
+    # init_db(name)
+    conn = sqlite3.connect(db_name)
+    cur = conn.cursor()
+    return_list = []
+    cur.execute(sql)    
+    return_list = cur.fetchall()
+    conn.commit()
+    cur.close
+    conn.close()
+    return return_list
+
 def saveToDataBase(email, db_name):
     # init_db(name)
     conn = sqlite3.connect(db_name)
@@ -100,7 +112,8 @@ def register():
             removeFromDataBase(form.email.data, 'covid19siteDB.db')   
 
         # return redirect(url_for('login')) # different formed website for entering the email
-    return render_template('register.html', form=form)
+    sites = {"www.signupgenius.com/go/copvaccination4-17" : "0"}
+    return render_template('register.html', form=form, sites=sites)
 
 
 if __name__ == "__main__":
