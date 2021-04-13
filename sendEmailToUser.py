@@ -35,6 +35,6 @@ def emailToUser(email_list, url):
     server.sendmail(sent_from, to, message)
     server.close()
 
-    print ('Email sent!')
+    # print ('Email sent!')
     # except:
     #     print ('Something went wrong...')
