@@ -30,29 +30,33 @@
     </p>
     <p> Currently we are checking sites below. Please email us at <a
             href="mailto:kzhangapplications@gmail.com">kzhangapplications@gmail.com</a> if you want other
-        sign-up sites to be included or have any comments. Thanks.</p>
-    <table style="width:240px">
-        <colgroup>
-            <col span="1"; style="background-color:rgb(163, 226, 104)">
-            <col style="background-color:yellow">
-          </colgroup>
-        <tr>
-            <th style="width:85%" > Sign-up Sites </th>
-            <th style="width:15%"> Available Spots</th>
-        </tr>
-        {% for site, avail in sites.items() %}
-        <tr>
-            <td><a
-                    href="https://{{ site }}">{{ site }}</a>
-            </td>
-            <td style="text-align:center">{{ avail }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-
-    <br>
+        sign-up sites to be included or have any comments. Thanks.
+    </p>
 
     <form action="" method=post>
+        <table style="width:340px">
+            <colgroup>
+                <col span="1"; style="background-color:rgb(163, 226, 104)">
+                <col style="background-color:yellow">
+                <col style="background-color:rgb(117, 194, 230)">
+              </colgroup>
+            <tr>
+                <th style="width:85%" > Sign-up Sites </th>
+                <th style="width:15%"> Available</th>
+                <th style="width:15%"> Register</th>
+            </tr>
+            {% for name, site, avail in sites %}
+            <tr>
+                <td><a
+                        href="https://{{ site }}">{{ name }}</a>
+                </td>
+                <td style="text-align:center">{{ avail }}</td>
+                <td><input type="checkbox" name="{{ site }}" value="{{ site }}"></td>
+            </tr>
+            {% endfor %}
+        </table>
+    
+        <br>
         <table>
             <tr>
                 <td>Please enter your email (We will notify you when a spot is available):</td>

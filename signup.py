@@ -112,7 +112,7 @@ def register():
             removeFromDataBase(form.email.data, 'covid19siteDB.db')   
 
         # return redirect(url_for('login')) # different formed website for entering the email
-    sites = {"www.signupgenius.com/go/copvaccination4-17" : "0"}
+    sites = [("4500 NE 122nd, Portland", "www.signupgenius.com/go/copvaccination4-17", "No"), ("MHCC", "https://www.signupgenius.com/go/4-16pfizermhcc", "Yes")]
     return render_template('register.html', form=form, sites=sites)
 
 

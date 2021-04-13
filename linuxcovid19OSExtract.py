@@ -3,7 +3,8 @@ import sqlite3
 from sendEmailToUser import emailToUser
 import datetime
 
-url = 'https://www.signupgenius.com/go/copvaccination4-17'
+#url = 'https://www.signupgenius.com/go/copvaccination4-17'
+url = 'https://www.signupgenius.com/go/4-16pfizermhcc'
 # url = 'https://www.signupgenius.com/go/copvaccination4-18'
 
 
