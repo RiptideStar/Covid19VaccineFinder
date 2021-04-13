@@ -51,7 +51,7 @@ if (found):
     print(date, ": COVID VACCINE AVAILABLE")
     #send emails to everyone from querying email database
     #query emails from database and have a list for all emails
-    email_tuples = queryFromDataBase('/covid19siteDB.db')
+    email_tuples = queryFromDataBase('covid19siteDB.db')
     # print("tuples", email_tuples)
 
     email_list = []
