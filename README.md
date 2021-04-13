@@ -2,12 +2,15 @@
 
 https://cutt.ly/myshot
 
-The website will keep searching / checking sign-up sites for available spots every 3 mins (some spots might become available due to any cancellations).If available spots are found, registered users are notified thru email immediately.
+The website will keep searching / checking / reporting covid19 vaccine sign-up sites for availability continuously (some spots might become available due to any cancellations). If available spots are found, registered users are notified thru email immediately.
 
-The website allowing people to - 
-1. enter their emails to be notified when a spot of covid19 vaccine is available.
-2. remove their emails to unregister from the site.
+The website - 
+1. lists a number of sign-up sites and their availability status
+2. allowss users to register their emails to be notified when a spot of covid19 vaccine is available at a specific site
+3. or unregister their emails from the site.
 
+#
+# TechNotes:
 ## Make sign-up a service on Ubuntu Server:
 
 1. Create /etc/init/flask.conf: 
@@ -29,5 +32,5 @@ sudo service flask start/stop/status.
 Run it every 3 mins:
 ```
 root@iZ238n5r3z9Z:~$ crontab -e
-*/3 * * * * python3 /alidata/www/covid19signupStatus/linuxcovid19OSExtract.py >> covidsignup.log 2>&
+*/2 * * * * python3 /alidata/www/covid19signupStatus/linuxcovid19OSExtract.py >> covidsignup.log 2>&
 ```

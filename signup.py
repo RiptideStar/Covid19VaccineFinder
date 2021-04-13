@@ -1,13 +1,3 @@
-# from flask import Flask, render_template
-# app = Flask(__name__)
-
-
-# @app.route('/')
-# def index():
-#     return render_template('index.html')
-
-# if __name__ == '__main__':
-#   app.run(host='127.0.0.1', port=8000, debug=True)
 
 from flask import Flask, render_template, flash, request, redirect, url_for
 from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField
@@ -17,8 +7,8 @@ import sqlite3
 # App config.
 DEBUG = True
 app = Flask(__name__)
-app.config.from_object(__name__)
-app.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
+# app.config.from_object(__name__)
+# app.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
 
 class RegistrationForm(Form):
     # username = StringField('Username', [validators.Length(min=4=, max=25)])
@@ -29,19 +19,6 @@ class RegistrationForm(Form):
     # ])
     # confirm = PasswordField('Repeat Password')
     # accept_tos = BooleanField('I accept the TOS', [validators.DataRequired()])
-
-# def init_db(db_name):
-#     sql = '''
-#         create table Users1
-#         (
-#             email text
-#         );
-#         '''
-#     conn = sqlite3.connect(db_name)
-#     c = conn.cursor()
-#     c.execute(sql)
-#     conn.commit()
-#     conn.close()
 
 def queryFromDataBase(db_name, sql):
     # init_db(name)
