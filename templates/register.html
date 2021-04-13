@@ -36,26 +36,24 @@
     <form action="" method=post>
         <table style="width:340px">
             <colgroup>
-                <col span="1"; style="background-color:rgb(163, 226, 104)">
+                <col span="1" ; style="background-color:rgb(163, 226, 104)">
                 <col style="background-color:yellow">
                 <col style="background-color:rgb(117, 194, 230)">
-              </colgroup>
+            </colgroup>
             <tr>
-                <th style="width:85%"> Sign-up Sites </th>
+                <th style="width:85%; text-align:center"> Sign-up Sites </th>
                 <th style="width:15%"> Available</th>
                 <th style="width:15%"> Register</th>
             </tr>
             {% for name, site, avail in sites %}
             <tr>
-                <td><a
-                        href="https://{{ site }}">{{ name }}</a>
-                </td>
-                <td style="text-align:center">{{ avail }}</td>
-                <td><input type="checkbox" name="{{ site }}" value="{{ site }}"></td>
+                <td><a href="https://{{ site }}">{{ name }}</a></td>
+                <td style="text-align:center"><a href="https://{{ site }}">{{ avail }}</a></td>
+                <td style="text-align:center"><input type="checkbox" name="{{ site }}" value="{{ site }}"></td>
             </tr>
             {% endfor %}
         </table>
-    
+
         <br>
         <table>
             <tr>
