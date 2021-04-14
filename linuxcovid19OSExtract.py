@@ -71,10 +71,10 @@ def check_availability_send_email(db_name):
     date = datetime.datetime.now()
     for url in urls:
         found = retrieve_data(url[0])
-        emails = query_emails_on_url(db_name, url[0])
-        emails_list = emails[0][0].split(",")
-        emailToUser(emails_list, url[0])
-        print("Emails sent:", emails_list)
+        # emails = query_emails_on_url(db_name, url[0])
+        # emails_list = emails[0][0].split(",")
+        # emailToUser(emails_list, url[0])
+        # print("Emails sent:", emails_list)
         if (found):
             # add "Yes" to openings
             there_an_opening = True
@@ -82,7 +82,6 @@ def check_availability_send_email(db_name):
             emails = query_emails_on_url(db_name, url[0])
             emails_list = emails[0][0].split(",")
             emailToUser(emails_list, url[0])
-            
 
             #LOGGING
             print(date, ": COVID VACCINE AVAILABLE on", url[0])
