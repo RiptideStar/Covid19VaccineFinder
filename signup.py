@@ -95,7 +95,7 @@ def removeFromDataBase(email, urls, db_name):
             strEmails = origEmails[0][0]
             strEmails = strEmails.replace("," + email, "")
             update_emails(url, strEmails, cur)
-        flash("The email has been removed")
+        flash("The email has been removed from " + origEmails[0][1])
 
     # sql = '''
     #     delete from Users where email=?
@@ -127,7 +127,7 @@ def register():
         # if form.submitted == 'Register':
         urls = request.form.getlist("register_box")
         if len(urls) == 0:
-            flash('Please check at least one site in the above table')
+            flash('Please select at least one site in the table above.')
         elif "," in form.email.data:
             flash('This email is not valid')      
         else:    
