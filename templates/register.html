@@ -47,8 +47,8 @@
             </tr>
             {% for name, site, avail in sites %}
             <tr>
-                <td><a href="https://{{ site }}">{{ name }}</a></td>
-                <td style="text-align:center"><a href="https://{{ site }}">{{ avail }}</a></td>
+                <td><a href="{{ site }}">{{ name }}</a></td>
+                <td style="text-align:center"><a href="{{ site }}">{{ avail }}</a></td>
                 <td style="text-align:center"><input type="checkbox" name="register_box" value="{{ site }}"></td>
             </tr>
             {% endfor %}
