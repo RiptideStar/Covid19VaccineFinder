@@ -113,7 +113,7 @@ def removeFromDataBase(email, urls, db_name):
     return True    
 
 def query_into_tuplelist_sites(db_name):
-    sites = queryFromDataBase(db_name, "select name, url, openings from Sites")
+    sites = queryFromDataBase(db_name, "select name, url, date, openings from Sites order by date")
     # print(sites)
     return sites
 

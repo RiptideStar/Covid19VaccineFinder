@@ -1,4 +1,5 @@
 import os
+import smtplib
 import sqlite3
 from sendEmailToUser import emailToUser
 import datetime
@@ -65,27 +66,40 @@ def query_emails_on_url(db_name, url):
 
 
 def check_availability_send_email(db_name):
-    urls = queryFromDataBase(db_name, "select url from Sites")    
+    urls = queryFromDataBase(db_name, "select url, date from Sites")    
+    # print ("urls", urls)
     there_an_opening = False
 
     date = datetime.datetime.now()
     for url in urls:
+        # print("url[0]", url[0])
+        month, day = url[1].split("/")
+        # print(month, day)
+        siteDate = datetime.datetime(2021, int(month), int(day), 20)
+
+        if date > siteDate :
+            print("site expired: ", url)
+            continue
+
         found = retrieve_data(url[0])
         # emails = query_emails_on_url(db_name, url[0])
         # emails_list = emails[0][0].split(",")
         # emailToUser(emails_list, url[0])
         # print("Emails sent:", emails_list)
         if (found):
+            print(date, ": COVID VACCINE AVAILABLE on", url[0]) # LOGGING
             # add "Yes" to openings
             there_an_opening = True
             saveOpeningToDataBase("Yes", db_name, url[0])
             emails = query_emails_on_url(db_name, url[0])
             emails_list = emails[0][0].split(",")
-            emailToUser(emails_list, url[0])
-
-            #LOGGING
-            print(date, ": COVID VACCINE AVAILABLE on", url[0])
-            print("Emails sent:", emails_list)
+            try:
+                emailToUser(emails_list, url[0])
+                #LOGGING
+                print("Emails sent:", emails_list)
+            except smtplib.Error as e:
+                print("Email not sent! due to: ", e.message)
+                continue
 
         else:
             saveOpeningToDataBase("No", db_name, url[0])
