@@ -79,6 +79,7 @@ def check_availability_send_email(db_name):
 
         if date > siteDate :
             print("site expired: ", url)
+            saveOpeningToDataBase("No", db_name, url[0]) # make it unavailable
             continue
 
         found = retrieve_data(url[0])
