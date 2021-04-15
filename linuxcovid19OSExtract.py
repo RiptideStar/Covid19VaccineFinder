@@ -87,7 +87,7 @@ def check_availability_send_email(db_name):
         # emails_list = emails[0][0].split(",")
         # emailToUser(emails_list, url[0])
         # print("Emails sent:", emails_list)
-        if (True):
+        if (found):
             print(date, ": COVID VACCINE AVAILABLE on", url[0]) # LOGGING
             # add "Yes" to openings
             there_an_opening = True
