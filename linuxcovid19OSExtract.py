@@ -78,7 +78,7 @@ def check_availability_send_email(db_name):
         siteDate = datetime.datetime(2021, int(month), int(day), 20)
 
         if date > siteDate :
-            print("site expired: ", url)
+            print(date, "Site expired: ", url)
             saveOpeningToDataBase("No", db_name, url[0]) # make it unavailable
             continue
 
@@ -87,7 +87,7 @@ def check_availability_send_email(db_name):
         # emails_list = emails[0][0].split(",")
         # emailToUser(emails_list, url[0])
         # print("Emails sent:", emails_list)
-        if (found):
+        if (True):
             print(date, ": COVID VACCINE AVAILABLE on", url[0]) # LOGGING
             # add "Yes" to openings
             there_an_opening = True
@@ -97,9 +97,9 @@ def check_availability_send_email(db_name):
             try:
                 emailToUser(emails_list, url[0])
                 #LOGGING
-                print("Emails sent:", emails_list)
-            except smtplib.Error as e:
-                print("Email not sent! due to: ", e.message)
+                print("-- Emails sent:", emails_list)
+            except smtplib.SMTPDataError as e:
+                print("-- Email not sent! due to: ", e)
                 continue
 
         else:
