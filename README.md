@@ -11,7 +11,7 @@ The website -
 
 #
 # TechNotes:
-## Make sign-up a service on Ubuntu Server:
+## Make Finder a service on Ubuntu Server:
 
 1. Create /etc/init/flask.conf: 
 ```
