@@ -13,7 +13,7 @@ The website -
 # TechNotes:
 ## Make Finder a service on Ubuntu Server:
 
-0. enable the port flask is running on
+0. Enable the port flask is running on (e.g. 5001) -- run with sudo or as root.
 ```
 > ufw enable
 
