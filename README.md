@@ -13,6 +13,38 @@ The website -
 # TechNotes:
 ## Make Finder a service on Ubuntu Server:
 
+0. enable the port flask is running on
+```
+> ufw enable
+
+> ufw allow 5001
+
+> ufw status verbose
+Status: active
+Logging: on (low)
+Default: deny (incoming), allow (outgoing), disabled (routed)
+New profiles: skip
+
+To                         Action      From
+--                         ------      ----
+20/tcp                     ALLOW IN    Anywhere
+21/tcp                     ALLOW IN    Anywhere
+22/tcp                     ALLOW IN    Anywhere
+80/tcp                     ALLOW IN    Anywhere
+888/tcp                    ALLOW IN    Anywhere
+8888/tcp                   ALLOW IN    Anywhere
+39000:40000/tcp            ALLOW IN    Anywhere
+5001                       ALLOW IN    Anywhere
+20/tcp (v6)                ALLOW IN    Anywhere (v6)
+21/tcp (v6)                ALLOW IN    Anywhere (v6)
+22/tcp (v6)                ALLOW IN    Anywhere (v6)
+80/tcp (v6)                ALLOW IN    Anywhere (v6)
+888/tcp (v6)               ALLOW IN    Anywhere (v6)
+8888/tcp (v6)              ALLOW IN    Anywhere (v6)
+39000:40000/tcp (v6)       ALLOW IN    Anywhere (v6)
+5001 (v6)                  ALLOW IN    Anywhere (v6)
+```
+
 1. Create /etc/init/flask.conf: 
 ```
 description "flask"
