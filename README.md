@@ -13,7 +13,7 @@ The website -
 # TechNotes:
 ## Make Finder a service on Ubuntu Server:
 
-0. Enable the port flask is running on (e.g. 5001) -- run with sudo or as root.
+1. Enable the port flask is running on (e.g. 5001) -- run with sudo or as root.
 ```
 > ufw enable
 
@@ -45,19 +45,15 @@ To                         Action      From
 5001 (v6)                  ALLOW IN    Anywhere (v6)
 ```
 
-1. Create /etc/init/flask.conf: 
+2. create and start flask app service
+https://devstudioonline.com/article/deploy-python-flask-app-on-linux-server
+
 ```
-description "flask"
-start on stopped rc RUNLEVEL=[2345]
-respawn
-exec python3 /alidata/www/covid19signupStatus/signup_server.py
+systemctl start lineups.service
+systemctl status lineups.service
+systemctl stop lineups.service
 ```
 
-2. To start the service:
-```
-sudo service flask start
-```
-sudo service flask start/stop/status.
 
 ## Create cron job to run the check
 
