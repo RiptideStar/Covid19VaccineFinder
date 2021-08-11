@@ -9,11 +9,12 @@ The website -
 2. allowss users to register their emails to be notified when a spot of covid19 vaccine is available at a specific site
 3. or unregister their emails from the site.
 
-#
-# TechNotes:
-## Make Finder a service on Ubuntu Server:
+# TechNotes: Create and Run App as service and cron job
+
+## Create and Run an app as a service on Ubuntu Server:
 
 1. Enable the port flask is running on (e.g. 5001) -- run with sudo or as root.
+   
 ```
 > ufw enable
 
@@ -45,20 +46,36 @@ To                         Action      From
 5001 (v6)                  ALLOW IN    Anywhere (v6)
 ```
 
-2. create and start flask app service
-https://devstudioonline.com/article/deploy-python-flask-app-on-linux-server
+2. Create and Manage flask app service
+
+Follow the instructions described here:
+* https://devstudioonline.com/article/deploy-python-flask-app-on-linux-server
 
 ```
 systemctl start lineups.service
 systemctl status lineups.service
 systemctl stop lineups.service
 ```
+Note: Whenever app code is updated, need to restart the app service.
 
+3. List all services
+* https://www.tecmint.com/list-all-running-services-under-systemd-in-linux/
+```
+systemctl --type=service 
 
-## Create cron job to run the check
+systemctl --type=service --state=active
+
+# check a specific service
+systemctl --type=service | grep lineups
+
+# list all system services
+service --status-all
+```
+
+## Create cron job to run an app automatically
 
 Run it every 3 mins:
 ```
-root@iZ238n5r3z9Z:~$ crontab -e
+> crontab -e
 */2 * * * * python3 /alidata/www/covid19signupStatus/linuxcovid19OSExtract.py >> covidsignup.log 2>&
 ```
