@@ -52,9 +52,9 @@ Follow the instructions described here:
 * https://devstudioonline.com/article/deploy-python-flask-app-on-linux-server
 
 ```
-systemctl start lineups.service
-systemctl status lineups.service
-systemctl stop lineups.service
+systemctl start vaccine19.service
+systemctl status vaccine19.service
+systemctl stop vaccine19.service
 ```
 Note: Whenever app code is updated, need to restart the app service.
 
