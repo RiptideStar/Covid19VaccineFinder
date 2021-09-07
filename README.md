@@ -1,6 +1,6 @@
 # Covid19 Vaccine Availability Finder
 
-https://cutt.ly/myshot
+http://vaccine19.us/
 
 The website will keep searching / checking / reporting covid19 vaccine sign-up sites for availability continuously (some spots might become available due to any cancellations). If available spots are found, registered users are notified thru email immediately.
 
