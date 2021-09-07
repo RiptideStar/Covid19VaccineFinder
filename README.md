@@ -1,10 +1,10 @@
 # Covid19 Vaccine Availability Finder
 
 In the Spring this year, I noticed that my community around me was vocalizing the fact that it was hard for them to find available covid vaccine centers in April and there are sites with available spots unknown to them. This results in two big problems - 
-People who want to get vaccines could not find the available sites. They have to manually check all sites known to them constantly for availability. There are two problems with this manual check - 
-1) They don’t know all available sites
-2) They have to constantly polling the sites for checking availability (a very painful time consuming process).
-Some vaccine sites could not utilize all capacities to deliver vaccines.
+* People who want to get vaccines could not find the available sites. They have to manually check all sites known to them constantly for availability. There are two problems with this manual check - 
+  * They don’t know all available sites
+  * They have to constantly polling the sites for checking availability (a very painful time consuming process).
+* Some vaccine sites could not utilize all capacities to deliver vaccines.
 
 To address this mismatch of demands and supplies and those pain points, I decided to create a website to scan all vaccine sites in our area for availability and notify registered users when a spot becomes available.  
 
