@@ -1,13 +1,27 @@
 # Covid19 Vaccine Availability Finder
 
-http://vaccine19.us/
+In the Spring this year, I noticed that my community around me was vocalizing the fact that it was hard for them to find available covid vaccine centers in April and there are sites with available spots unknown to them. This results in two big problems - 
+People who want to get vaccines could not find the available sites. They have to manually check all sites known to them constantly for availability. There are two problems with this manual check - 
+1) They don’t know all available sites
+2) They have to constantly polling the sites for checking availability (a very painful time consuming process).
+Some vaccine sites could not utilize all capacities to deliver vaccines.
 
-The website will keep searching / checking / reporting covid19 vaccine sign-up sites for availability continuously (some spots might become available due to any cancellations). If available spots are found, registered users are notified thru email immediately.
+To address this mismatch of demands and supplies and those pain points, I decided to create a website to scan all vaccine sites in our area for availability and notify registered users when a spot becomes available.  
 
-The website - 
-1. lists a number of sign-up sites and their availability status
-2. allowss users to register their emails to be notified when a spot of covid19 vaccine is available at a specific site
-3. or unregister their emails from the site.
+Essentially, this is how our web service works  -
+People who want to get a vaccine shot go register at our website http://vaccine19.us/. (It is done with Python Flask framework.)
+Our backend process (a Python web crawler managed by a cron job) scans all vaccine sites every 5 minutes for availability. And display availability on the website.
+If there are openings, another Python backend process will notify registered users via email detailing the available time slots and locations. 
+
+Without further ado, after I laid out the plan for this web service, I got straight away cracking at it. In my free time, whenever I wasn’t in class, I would be grinding away to make this web service a reality. After two weeks of non-stop hard work and debugging, we finally had a functional website. I am glad that I finished in early April. 
+
+The Covid Vaccine Finder I developed helped 400+ users in Portland finding their vaccine shots. 150+ of them directly contacted me to appreciate how much time my web service has saved them. It warms my heart to know that I made an impact in people’s lives especially during the dreadful times of the pandemic.
+
+Here is the website link: http://vaccine19.us/. I know by no means does the website look aesthetically exceptional, but the mission wasn’t to make a colorfully designed website since the focus was on the functionality of the web service as soon as possible in the emergency of the pandemic. 
+
+I open-sourced my code for the project, so here is the GitHub for the project: https://github.com/RiptideStar/Covid19VaccineFinder (You are here right now)
+
+
 
 # TechNotes: Create and Run App as service and cron job
 
