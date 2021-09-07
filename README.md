@@ -9,9 +9,9 @@ Some vaccine sites could not utilize all capacities to deliver vaccines.
 To address this mismatch of demands and supplies and those pain points, I decided to create a website to scan all vaccine sites in our area for availability and notify registered users when a spot becomes available.  
 
 Essentially, this is how our web service works  -
-People who want to get a vaccine shot go register at our website http://vaccine19.us/. (It is done with Python Flask framework.)
-Our backend process (a Python web crawler managed by a cron job) scans all vaccine sites every 5 minutes for availability. And display availability on the website.
-If there are openings, another Python backend process will notify registered users via email detailing the available time slots and locations. 
+1. People who want to get a vaccine shot go register at our website http://vaccine19.us/. (It is done with Python Flask framework.)
+2. Our backend process (a Python web crawler managed by a cron job) scans all vaccine sites every 5 minutes for availability. And display availability on the website.
+3. If there are openings, another Python backend process will notify registered users via email detailing the available time slots and locations. 
 
 Without further ado, after I laid out the plan for this web service, I got straight away cracking at it. In my free time, whenever I wasn’t in class, I would be grinding away to make this web service a reality. After two weeks of non-stop hard work and debugging, we finally had a functional website. I am glad that I finished in early April. 
 
@@ -19,7 +19,7 @@ The Covid Vaccine Finder I developed helped 400+ users in Portland finding their
 
 Here is the website link: http://vaccine19.us/. I know by no means does the website look aesthetically exceptional, but the mission wasn’t to make a colorfully designed website since the focus was on the functionality of the web service as soon as possible in the emergency of the pandemic. 
 
-I open-sourced my code for the project, so here is the GitHub for the project: https://github.com/RiptideStar/Covid19VaccineFinder (You are here right now)
+I open-sourced my code for the project, so here is the GitHub for the project: https://github.com/RiptideStar/Covid19VaccineFinder  (You are here right now)
 
 
 
